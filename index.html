@@ -1,81 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZR Business Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZR Business Platform</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="firebase.js"></script>
+<script defer src="script.js"></script>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <h1>ZR Business Platform</h1>
-    <p>Learn Commerce, Build Your Future</p>
-  </div>
+<!-- Top Bar -->
+<div class="topbar">
+    <span>📢 বাংলাদেশের অন্যতম Commerce Education Platform</span>
+</div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">HSC</a>
-    <a href="#">Honours</a>
-    <a href="#">Master's</a>
-    <a href="#">Notes</a>
-    <a href="#">MCQ</a>
-    <a href="#">CQ</a>
-    <a href="#">Education News</a>
-    <a href="#">Login</a>
-  </nav>
+<!-- Header -->
+<header>
+    <div class="logo">
+        <h1>ZR Business Platform</h1>
+        <p>Learn Commerce, Build Your Future</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search Notes, MCQ, CQ...">
+        <button>🔍</button>
+    </div>
+
+    <a href="#" class="login-btn">Login</a>
 </header>
 
+<!-- Navigation -->
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">HSC</a></li>
+<li><a href="#">Honours</a></li>
+<li><a href="#">Master's</a></li>
+<li><a href="#">Notes</a></li>
+<li><a href="#">MCQ</a></li>
+<li><a href="#">CQ</a></li>
+<li><a href="#">Education News</a></li>
+</ul>
+</nav>
+
+<!-- Breaking News -->
+<section class="breaking-news">
+<marquee>
+🔥 নতুন HSC নোট প্রকাশিত হয়েছে | নতুন MCQ যুক্ত হয়েছে | শিক্ষা সংক্রান্ত সর্বশেষ খবর এখানে প্রকাশিত হবে
+</marquee>
+</section>
+
+<!-- Hero -->
 <section class="hero">
-  <h2>Welcome to ZR Business Platform</h2>
+<h2>Welcome to ZR Business Platform</h2>
+<p>বাংলাদেশের Commerce শিক্ষার্থীদের জন্য আধুনিক ডিজিটাল শিক্ষা প্ল্যাটফর্ম</p>
 
-  <p>
-    বাংলাদেশের শিক্ষার্থীদের জন্য একটি আধুনিক Commerce Education Platform।
-  </p>
-
-  <button>Explore Courses</button>
+<button>Explore Courses</button>
 </section>
 
-<section class="subjects">
+<!-- এখানেই থামো -->
 
-<h2>Our Courses</h2>
+  <!-- Latest Notes -->
+<section class="latest-section">
+    <h2>📚 Latest Notes</h2>
 
-<div class="card">
+    <div class="card">
+        <h3>HSC Accounting 1st Paper</h3>
+        <p>নতুন নোট প্রকাশিত হয়েছে।</p>
+    </div>
 
-<h3>HSC</h3>
+    <div class="card">
+        <h3>Finance & Banking</h3>
+        <p>নতুন অধ্যায় যুক্ত হয়েছে।</p>
+    </div>
 
-<p>Accounting, Finance, Management, ICT</p>
-
-</div>
-
-<div class="card">
-
-<h3>Honours</h3>
-
-<p>Accounting & Finance</p>
-
-</div>
-
-<div class="card">
-
-<h3>Master's</h3>
-
-<p>Advanced Commerce Learning</p>
-
-</div>
-
+    <div class="card">
+        <h3>Business Organization</h3>
+        <p>সর্বশেষ আপডেটেড নোট।</p>
+    </div>
 </section>
 
+<!-- Popular Subjects -->
+<section class="latest-section">
+    <h2>🎓 Popular Subjects</h2>
+
+    <div class="card">
+        <h3>Accounting</h3>
+    </div>
+
+    <div class="card">
+        <h3>Finance</h3>
+    </div>
+
+    <div class="card">
+        <h3>Management</h3>
+    </div>
+
+    <div class="card">
+        <h3>ICT</h3>
+    </div>
+</section>
+
+<!-- Education News -->
+<section class="latest-section">
+    <h2>📰 Education News</h2>
+
+    <div class="card">
+        <h3>HSC 2027 প্রস্তুতি শুরু</h3>
+        <p>সর্বশেষ শিক্ষা সংক্রান্ত খবর এখানে প্রকাশিত হবে।</p>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
-
-<p>© 2026 ZR Business Platform. All Rights Reserved.</p>
-
+    <p>© 2026 ZR Business Platform</p>
+    <p>Learn Commerce, Build Your Future</p>
 </footer>
-
-<script src="script.js"></script>
 
 </body>
 </html>
