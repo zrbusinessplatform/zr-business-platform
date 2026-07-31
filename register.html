@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register | ZR Business Platform</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="register-container">
+
+    <div class="register-card">
+
+        <h1>ZR Business Platform</h1>
+
+        <p>Create Your Account</p>
+
+        <input
+        type="text"
+        id="fullname"
+        placeholder="Full Name">
+
+        <input
+        type="email"
+        id="email"
+        placeholder="Email Address">
+
+        <input
+        type="password"
+        id="password"
+        placeholder="Password">
+
+        <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirm Password">
+
+        <button id="registerBtn">
+
+            Register
+
+        </button>
+
+        <br><br>
+
+        <a href="login.html">
+
+            Already have an account? Login
+
+        </a>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+
+<script type="module" src="script.js"></script>
+
+</body>
+
+</html>
