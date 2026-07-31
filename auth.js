@@ -1,4 +1,4 @@
-import { auth } from "./firebase.js";
+import { auth, db } from "./firebase.js";
 
 import {
   createUserWithEmailAndPassword,
@@ -6,6 +6,11 @@ import {
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const registerBtn = document.getElementById("registerBtn");
 
@@ -59,11 +64,35 @@ if (loginBtn) {
 
     try {
 
-      await signInWithEmailAndPassword(auth, email, password);
+     const userCredential = await signInWithEmailAndPassword(
+  auth,
+  email,
+  password
+);
 
-      message.innerText = "Login Successful!";
+message.innerText = "Login Successful!";
 
-      window.location.href = "dashboard.html";
+const userDoc = await getDoc(doc(db, "users", "admin001"));
+
+if (userDoc.exists()) {
+
+  const role = userDoc.data().role;
+
+  if (role === "superadmin") {
+
+    window.location.href = "dashboard.html";
+
+  } else {
+
+    alert("Role not found.");
+
+  }
+
+} else {
+
+  alert("User data not found.");
+
+}
 
     } catch (error) {
 
