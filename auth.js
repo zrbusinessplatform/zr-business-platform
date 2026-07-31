@@ -1,3 +1,3 @@
 import { auth } from "./firebase.js";
 
-console.log("Auth Loaded Successfully");
+console.log("Authentication Ready");
