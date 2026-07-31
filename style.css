@@ -1,77 +1,265 @@
+/* =========================
+   ZR Business Platform v2.0
+   Part A
+========================= */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  background:#f5f7fb;
-  color:#222;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+    color:#222;
 }
+
+/* Top Bar */
+
+.topbar{
+    background:#d32f2f;
+    color:#fff;
+    text-align:center;
+    padding:8px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* Header */
 
 header{
-  background:#0d47a1;
-  color:#fff;
-  padding:20px;
-  text-align:center;
+    background:#0b57d0;
+    color:#fff;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
-header h1{
-  font-size:32px;
+.logo h1{
+    font-size:30px;
 }
 
-header p{
-  margin-top:5px;
+.logo p{
+    margin-top:5px;
+    font-size:14px;
 }
+
+.search-box{
+    display:flex;
+    gap:10px;
+}
+
+.search-box input{
+    width:260px;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+}
+
+.search-box button{
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:#ff9800;
+    color:#fff;
+}
+
+.login-btn{
+    background:#ff9800;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* Navigation */
 
 nav{
-  margin-top:15px;
+    background:#083b8a;
 }
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin:8px;
-  font-weight:bold;
+nav ul{
+    display:flex;
+    list-style:none;
+    justify-content:center;
+    flex-wrap:wrap;
 }
+
+nav ul li a{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    padding:15px 18px;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    background:#1565c0;
+}
+
+/* Breaking News */
+
+.breaking-news{
+    background:#fff3cd;
+    color:#b71c1c;
+    padding:10px;
+    font-weight:bold;
+}
+
+/* =========================
+   ZR Business Platform v2.0
+   Part B
+========================= */
+
+/* Hero Section */
 
 .hero{
-  text-align:center;
-  padding:60px 20px;
-  background:#1976d2;
-  color:white;
+    background:#1976d2;
+    color:#fff;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:20px;
 }
 
 .hero button{
-  margin-top:20px;
-  padding:12px 25px;
-  border:none;
-  border-radius:8px;
-  background:#ff9800;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
+    background:#ff9800;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
 }
 
-.subjects{
-  padding:40px 20px;
-  text-align:center;
+/* Section */
+
+.latest-section{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
 }
+
+.latest-section h2{
+    margin-bottom:20px;
+    color:#0b57d0;
+    border-left:6px solid #ff9800;
+    padding-left:10px;
+}
+
+/* Cards */
 
 .card{
-  background:white;
-  margin:20px auto;
-  max-width:350px;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 2px 8px rgba(0,0,0,.15);
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.12);
+    transition:0.3s;
 }
 
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#0b57d0;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#555;
+    line-height:1.6;
+}
+
+/* =========================
+   ZR Business Platform v2.0
+   Part C
+========================= */
+
+/* Footer */
+
 footer{
-  background:#0d47a1;
-  color:white;
-  text-align:center;
-  padding:20px;
-  margin-top:40px;
+    background:#0b57d0;
+    color:#fff;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:40px;
+}
+
+footer p{
+    margin:5px 0;
+}
+
+/* Mobile Responsive */
+
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    .search-box{
+        width:100%;
+        justify-content:center;
+    }
+
+    .search-box input{
+        width:80%;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    nav ul li a{
+        text-align:center;
+        border-top:1px solid rgba(255,255,255,.2);
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .latest-section{
+        width:95%;
+    }
+}
+
+/* Buttons */
+
+button,
+.login-btn{
+    transition:0.3s;
+}
+
+button:hover,
+.login-btn:hover{
+    opacity:.9;
+}
+
+/* Smooth Scroll */
+
+html{
+    scroll-behavior:smooth;
 }
