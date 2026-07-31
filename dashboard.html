@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard | ZR Business Platform</title>
+<title>Super Admin Dashboard | ZR Business Platform</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -13,44 +13,88 @@
 
 <body>
 
-<header>
+<div class="dashboard-container">
 
-<h1>ZR Business Platform</h1>
+    <aside class="sidebar">
 
-<p>Student Dashboard</p>
+        <h2>ZR Business Platform</h2>
 
-</header>
+        <ul>
 
-<main class="dashboard">
+            <li>🏠 Dashboard</li>
 
-<h2>Welcome</h2>
+            <li>👥 User Management</li>
 
-<p id="userName">Loading...</p>
+            <li>📘 HSC</li>
 
-<p id="userEmail">Loading...</p>
+            <li>🎓 Honours</li>
 
-<hr>
+            <li>🎓 Master's</li>
 
-<h3>Quick Menu</h3>
+            <li>📚 Notes</li>
 
-<ul>
-<li>📚 My Notes</li>
-<li>📝 MCQ Practice</li>
-<li>📖 CQ Practice</li>
-<li>📰 Education News</li>
-<li>📄 PDF Library</li>
-</ul>
+            <li>❓ MCQ</li>
 
-<button id="logoutBtn">
+            <li>📝 CQ</li>
 
-Logout
+            <li>📄 PDF Library</li>
 
-</button>
+            <li>📰 Education News</li>
 
-</main>
+            <li>📢 Notice</li>
 
-<script type="module" src="firebase.js"></script>
-<script type="module" src="auth.js"></script>
+            <li>📊 Analytics</li>
+
+            <li>⚙️ Website Settings</li>
+
+            <li id="logoutBtn">🚪 Logout</li>
+
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <h1>👑 Super Admin Dashboard</h1>
+
+        <p>Welcome to ZR Business Platform</p>
+
+        <p id="userEmail"></p>
+
+        <div class="cards">
+
+            <div class="card">👥 Users</div>
+
+            <div class="card">📘 HSC</div>
+
+            <div class="card">🎓 Honours</div>
+
+            <div class="card">🎓 Master's</div>
+
+            <div class="card">📚 Notes</div>
+
+            <div class="card">❓ MCQ</div>
+
+            <div class="card">📝 CQ</div>
+
+            <div class="card">📄 PDF Library</div>
+
+            <div class="card">📰 Education News</div>
+
+            <div class="card">📢 Notice</div>
+
+            <div class="card">📊 Analytics</div>
+
+            <div class="card">⚙️ Website Settings</div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script type="module" src="firebase.js?v=2"></script>
+<script type="module" src="auth.js?v=2"></script>
 
 </body>
 
