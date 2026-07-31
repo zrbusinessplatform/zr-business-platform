@@ -41,3 +41,33 @@ if (registerBtn) {
   });
 
 }
+
+const loginBtn = document.getElementById("loginBtn");
+
+if (loginBtn) {
+
+  loginBtn.addEventListener("click", async () => {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    message.innerText = "";
+
+    try {
+
+      await signInWithEmailAndPassword(auth, email, password);
+
+      message.innerText = "Login Successful!";
+
+      window.location.href = "dashboard.html";
+
+    } catch (error) {
+
+      message.innerText = error.message;
+
+    }
+
+  });
+
+}
