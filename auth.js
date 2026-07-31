@@ -74,3 +74,36 @@ if (loginBtn) {
   });
 
 }
+
+const userEmail = document.getElementById("userEmail");
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (userEmail) {
+
+  onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+
+      userEmail.innerText = user.email;
+
+    } else {
+
+      window.location.href = "login.html";
+
+    }
+
+  });
+
+}
+
+if (logoutBtn) {
+
+  logoutBtn.addEventListener("click", async () => {
+
+    await signOut(auth);
+
+    window.location.href = "login.html";
+
+  });
+
+}
