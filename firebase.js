@@ -15,3 +15,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 console.log("Firebase Connected Successfully");
+
+// Authentication
+import {
+  getAuth
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+// Firestore
+import {
+  getFirestore
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Export
+export { auth, db };
