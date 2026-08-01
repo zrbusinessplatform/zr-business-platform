@@ -158,12 +158,35 @@ if (userEmail) {
 
   onAuthStateChanged(auth, (user) => {
 
-    if (user) {
+    if (userEmail) {
 
-      userEmail.innerText = user.email;
+  onAuthStateChanged(auth, async (user) => {
 
-    } else {
+    if (!user) {
 
+      window.location.href = "login.html";
+      return;
+
+    }
+
+    userEmail.innerText = user.email;
+
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+
+    if (!userDoc.exists()) {
+
+      await signOut(auth);
+      window.location.href = "login.html";
+      return;
+
+    }
+
+    const data = userDoc.data();
+
+    if (data.status !== "active") {
+
+      await signOut(auth);
+      alert("Your account has been blocked.");
       window.location.href = "login.html";
 
     }
