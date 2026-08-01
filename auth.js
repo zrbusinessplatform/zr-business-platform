@@ -83,7 +83,7 @@ if (loginBtn) {
 
     try {
 
-     const userCredential = await signInWithEmailAndPassword(
+  const userCredential = await signInWithEmailAndPassword(
   auth,
   email,
   password
@@ -91,25 +91,53 @@ if (loginBtn) {
 
 message.innerText = "Login Successful!";
 
-const userDoc = await getDoc(doc(db, "users", "admin001"));
+      const userCredential = await signInWithEmailAndPassword(
+  auth,
+  email,
+  password
+);
 
-if (userDoc.exists()) {
+message.innerText = "Login Successful!";
 
-  const role = userDoc.data().role;
+const uid = userCredential.user.uid;
 
-  if (role === "superadmin") {
+const userDoc = await getDoc(doc(db, "users", uid));
 
+if (!userDoc.exists()) {
+
+  message.innerText = "User profile not found.";
+  return;
+
+}
+
+const role = userDoc.data().role;
+
+switch (role) {
+
+  case "superadmin":
     window.location.href = "dashboard.html";
+    break;
 
-  } else {
+  case "admin":
+    window.location.href = "admin.html";
+    break;
 
-    alert("Role not found.");
+  case "editor":
+    window.location.href = "editor.html";
+    break;
 
-  }
+  case "teacher":
+    window.location.href = "teacher.html";
+    break;
 
-} else {
+  case "student":
+    window.location.href = "student.html";
+    break;
 
-  alert("User data not found.");
+  default:
+    message.innerText = "Invalid user role.";
+
+}
 
 }
 
