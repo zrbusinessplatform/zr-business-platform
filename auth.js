@@ -14,7 +14,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 import {
-  doc,
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -43,25 +42,27 @@ if (registerBtn) {
     }
 
     try {
-    const userCredential = await createUserWithEmailAndPassword(
-  auth,
-  email,
-  password
-);
 
-await setDoc(doc(db, "users", userCredential.user.uid), {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-  fullName: fullname,
-  email: email,
-  role: "student",
-  status: "active",
-  createdAt: serverTimestamp()
+      await setDoc(doc(db, "users", userCredential.user.uid), {
+        fullName: fullname,
+        email: email,
+        role: "student",
+        status: "active",
+        createdAt: serverTimestamp()
+      });
 
-});
+      message.innerText = "Registration Successful!";
 
-message.innerText = "Registration Successful!";
     } catch (error) {
+
       message.innerText = error.message;
+
     }
 
   });
@@ -73,7 +74,6 @@ const loginBtn = document.getElementById("loginBtn");
 if (loginBtn) {
 
   loginBtn.addEventListener("click", async () => {
-    alert("Login button clicked");
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
@@ -83,63 +83,49 @@ if (loginBtn) {
 
     try {
 
-  const userCredential = await signInWithEmailAndPassword(
-  auth,
-  email,
-  password
-);
-
-message.innerText = "Login Successful!";
-
       const userCredential = await signInWithEmailAndPassword(
-  auth,
-  email,
-  password
-);
+        auth,
+        email,
+        password
+      );
 
-message.innerText = "Login Successful!";
+      const uid = userCredential.user.uid;
 
-const uid = userCredential.user.uid;
+      const userDoc = await getDoc(doc(db, "users", uid));
 
-const userDoc = await getDoc(doc(db, "users", uid));
+      if (!userDoc.exists()) {
+        message.innerText = "User profile not found.";
+        return;
+      }
 
-if (!userDoc.exists()) {
+      const role = userDoc.data().role;
 
-  message.innerText = "User profile not found.";
-  return;
+      switch (role) {
 
-}
+        case "superadmin":
+          window.location.href = "dashboard.html";
+          break;
 
-const role = userDoc.data().role;
+        case "admin":
+          window.location.href = "admin.html";
+          break;
 
-switch (role) {
+        case "editor":
+          window.location.href = "editor.html";
+          break;
 
-  case "superadmin":
-    window.location.href = "dashboard.html";
-    break;
+        case "teacher":
+          window.location.href = "teacher.html";
+          break;
 
-  case "admin":
-    window.location.href = "admin.html";
-    break;
+        case "student":
+          window.location.href = "student.html";
+          break;
 
-  case "editor":
-    window.location.href = "editor.html";
-    break;
+        default:
+          message.innerText = "Invalid user role.";
 
-  case "teacher":
-    window.location.href = "teacher.html";
-    break;
-
-  case "student":
-    window.location.href = "student.html";
-    break;
-
-  default:
-    message.innerText = "Invalid user role.";
-
-}
-
-}
+      }
 
     } catch (error) {
 
@@ -156,39 +142,35 @@ const logoutBtn = document.getElementById("logoutBtn");
 
 if (userEmail) {
 
-  onAuthStateChanged(auth, (user) => {
-
-    if (userEmail) {
-
   onAuthStateChanged(auth, async (user) => {
 
     if (!user) {
-
       window.location.href = "login.html";
       return;
-
     }
 
     userEmail.innerText = user.email;
 
-    const userDoc = await getDoc(doc(db, "users", user.uid));
+    try {
 
-    if (!userDoc.exists()) {
+      const userDoc = await getDoc(doc(db, "users", user.uid));
 
-      await signOut(auth);
-      window.location.href = "login.html";
-      return;
+      if (!userDoc.exists()) {
+        await signOut(auth);
+        window.location.href = "login.html";
+        return;
+      }
 
-    }
+      const data = userDoc.data();
 
-    const data = userDoc.data();
+      if (data.status !== "active") {
+        await signOut(auth);
+        alert("Your account has been blocked.");
+        window.location.href = "login.html";
+      }
 
-    if (data.status !== "active") {
-
-      await signOut(auth);
-      alert("Your account has been blocked.");
-      window.location.href = "login.html";
-
+    } catch (error) {
+      console.error(error);
     }
 
   });
