@@ -2,149 +2,88 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management | ZR Business Platform</title>
 
-<title>User Management | ZR Business Platform</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="dashboard-container">
 
-<aside class="sidebar">
+  <aside class="sidebar">
 
-<h2>ZR Business Platform</h2>
+    <h2>ZR Business Platform</h2>
 
-<ul>
+    <ul>
+      <li><a href="dashboard.html">🏠 Dashboard</a></li>
+      <li><a href="users.html">👥 User Management</a></li>
+      <li><a href="#">📘 HSC</a></li>
+      <li><a href="#">🎓 Honours</a></li>
+      <li><a href="#">🎓 Master's</a></li>
+      <li><a href="#">📚 Notes</a></li>
+      <li><a href="#">❓ MCQ</a></li>
+      <li><a href="#">📝 CQ</a></li>
+      <li><a href="#">📄 PDF Library</a></li>
+      <li><a href="#">📰 Education News</a></li>
+      <li><a href="#">📢 Notice</a></li>
+      <li><a href="#">⚙️ Website Settings</a></li>
+    </ul>
 
-<li><a href="dashboard.html">🏠 Dashboard</a></li>
+  </aside>
 
-<li><b>👥 User Management</b></li>
+  <main class="content">
 
-<li>📘 HSC</li>
+    <h1>👥 User Management</h1>
 
-<li>🎓 Honours</li>
+    <div class="top-bar">
 
-<li>🎓 Master's</li>
+      <a href="add-user.html">
+        <button>Add New User</button>
+      </a>
 
-<li>📚 Notes</li>
+      <input
+        type="text"
+        id="searchUser"
+        placeholder="Search user...">
 
-<li>❓ MCQ</li>
+    </div>
 
-<li>📝 CQ</li>
+    <table class="user-table">
 
-<li>📄 PDF Library</li>
+      <thead>
 
-<li>📰 Education News</li>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
 
-<li>📢 Notice</li>
+      </thead>
 
-<li>⚙️ Website Settings</li>
+      <tbody id="userTableBody">
 
-</ul>
+        <tr>
+          <td colspan="5" style="text-align:center;">
+            Loading users...
+          </td>
+        </tr>
 
-</aside>
+      </tbody>
 
-<main class="content">
+    </table>
 
-<h1>👥 User Management</h1>
-
-<div class="top-bar">
-
-<a href="add-user.html">
-<button>Add New User</button>
-</a>
-
-<input
-type="text"
-placeholder="Search user..."
-id="searchUser">
-
-</div>
-
-<br>
-
-<table class="user-table">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-<th>Email</th>
-<th>Role</th>
-<th>Status</th>
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody id="userTableBody">
-
-<tr>
-
-<td colspan="5" style="text-align:center;">
-
-Loading users...
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</main>
-
-<h1>👥 User Management</h1>
-
-<button>Add New User</button>
-
-<br><br>
-
-<table border="1" width="100%" cellpadding="10">
-
-<tr>
-
-<th>Name</th>
-
-<th>Email</th>
-
-<th>Role</th>
-
-<th>Status</th>
-
-<th>Action</th>
-
-</tr>
-
-<tr>
-
-<td>No Data</td>
-
-<td>-</td>
-
-<td>-</td>
-
-<td>-</td>
-
-<td>-</td>
-
-</tr>
-
-</table>
-
-</main>
+  </main>
 
 </div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="users.js"></script>
 
 </body>
-
 </html>
