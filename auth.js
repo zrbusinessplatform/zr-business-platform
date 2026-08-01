@@ -6,6 +6,8 @@ import {
   serverTimestamp
 } from "./firebase.js";
 
+alert("auth.js loaded");
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
