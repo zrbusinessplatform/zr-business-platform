@@ -1,4 +1,10 @@
-import { auth, db } from "./firebase.js";
+import {
+  auth,
+  db,
+  doc,
+  setDoc,
+  serverTimestamp
+} from "./firebase.js";
 
 import {
   createUserWithEmailAndPassword,
@@ -37,10 +43,23 @@ if (registerBtn) {
     }
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+  auth,
+  email,
+  password
+);
 
-      message.innerText = "Registration Successful!";
+await setDoc(doc(db, "users", userCredential.user.uid), {
 
+  fullName: fullname,
+  email: email,
+  role: "student",
+  status: "active",
+  createdAt: serverTimestamp()
+
+});
+
+message.innerText = "Registration Successful!";
     } catch (error) {
       message.innerText = error.message;
     }
