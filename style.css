@@ -407,3 +407,22 @@ text-align:left;
 background:#2563eb;
 color:#fff;
 }
+
+.sidebar ul li a{
+    color:#fff;
+    text-decoration:none;
+    display:block;
+}
+
+.sidebar ul li a:hover{
+    color:#fff;
+}
+
+button{
+    cursor:pointer;
+}
+
+table{
+    border-radius:10px;
+    overflow:hidden;
+}
